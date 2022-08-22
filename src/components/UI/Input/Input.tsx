@@ -18,13 +18,10 @@ const InputTextField = styled(TextField)({
     '& p': {
         fontFamily: '"Nunito" !important',
     },
-    '.css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root.Mui-error': {
+    '.Mui-error.MuiFormLabel-filled': {
         color: '#CB3D40 !important',
     },
-    '.css-1sumxir-MuiFormLabel-root-MuiInputLabel-root.Mui-error': {
-        color: '#CB3D40 !important',
-    },
-    '.css-md26zr-MuiInputBase-root-MuiOutlinedInput-root.Mui-error .MuiOutlinedInput-notchedOutline': {
+    '.Mui-error .MuiOutlinedInput-notchedOutline': {
         borderColor: '#CB3D40 !important',
         borderWidth: '2px !important',
         transition: '50ms !important',
