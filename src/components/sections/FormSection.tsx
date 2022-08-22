@@ -42,7 +42,7 @@ export default function FormSection() {
     name.setEmpty()
     email.setEmpty()
     phone.setEmpty()
-    setPhotoName('')
+    setPhotoName('Upload your photo')
   }
 
   useEffect(() => {
