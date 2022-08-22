@@ -1,0 +1,96 @@
+@import "../variables";
+
+.user-section {
+
+    h1 {
+        text-align: center;
+        margin-bottom: 50px;
+    }
+
+    .user-section__card-box {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 29px;
+
+        .user-section__card {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: calc((100% - 60px) / 3);
+            height: 254px;
+            background-color: $white-color;
+            border-radius: 10px;
+            gap: 20px;
+
+            img {
+                border-radius: 50%;
+            }
+
+            p {
+                cursor: pointer;
+                padding: 0 20px;
+                text-align: center;
+                max-width: 100%;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                text-align: center;
+            }
+
+
+            .user-section__detailed {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+            }
+            
+            &.dummy {
+                margin: 0;
+                height: 0;
+            }
+        }
+        
+        .user-section__btn {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 140px;
+        }
+    }
+}
+.tooltip {
+    padding: 3px 16px !important;
+    font-size: 16px !important;
+}
+
+
+@media (max-width: 1024px) {
+    .user-section__card-box {
+        padding: 0 60px;
+    }
+}
+
+@media (max-width: 768px) {
+    .user-section__card-box {
+        gap: 16px !important;
+        padding: 0 32px;
+
+        .user-section__card {
+            width: calc((100% - 16px) / 2) !important;
+        }
+    }
+}
+
+@media (max-width: 360px) {
+    .user-section__card-box {
+        gap: 20px !important;
+        padding: 0 16px;
+
+        .user-section__card {
+            width: 100% !important;
+        }
+    }
+}

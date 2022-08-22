@@ -1,0 +1,36 @@
+@import "../variables";
+
+.background {
+    background-image: url('../../assets/pexels-alexandr-podvalny-1227513.jpeg');
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: 1570px;
+    height: 650px;
+    margin-bottom: 140px;
+
+    .background_theme {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(0deg,
+                rgba(0, 0, 0, 0.5),
+                rgba(0, 0, 0, 0.5));
+    }
+
+    .background__text {
+        text-align: center;
+        max-width: 380px;
+        color: $white-color;
+
+        h1 {
+            margin-bottom: 21px;
+        }
+
+        p {
+            margin-bottom: 32px;
+        }
+    }
+}
