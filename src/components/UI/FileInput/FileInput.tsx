@@ -6,10 +6,9 @@ type FileInputProps = {
     accept: string;
     onChange: (event: any) => void;
     photoName: string;
-    value: string;
 }
 
-export default function FileInput({ helperText, accept, onChange, photoName, value }: FileInputProps) {
+export default function FileInput({ helperText, accept, onChange, photoName }: FileInputProps) {
     return (
         <div className={style.fileContainer}>
             <div className={style.file}>
@@ -23,7 +22,8 @@ export default function FileInput({ helperText, accept, onChange, photoName, val
                 />
                 <span>{photoName}</span>
             </div>
-            {helperText && <span className={style.helper}>{helperText}</span>}
+            {helperText &&
+                <span className={style.helper}>{helperText}</span>}
         </div>
     )
 }

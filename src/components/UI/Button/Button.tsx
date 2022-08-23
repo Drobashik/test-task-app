@@ -9,7 +9,7 @@ type ButtonProps = {
     onClick?: (event: any) => void;
 }
 
-export default function Button({ children, isButton, href, disabled = false, onClick}: ButtonProps) {
+export default function Button({ children, isButton, href, disabled = false, onClick }: ButtonProps) {
     return (
         isButton ?
 

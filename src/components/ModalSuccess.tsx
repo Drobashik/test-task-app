@@ -14,7 +14,10 @@ function ModalSuccess() {
       <div className="success-modal__box">
         <h1>User successfully registered</h1>
         <img src={successImage} alt="Success" />
-        <Button isButton={true} onClick={closeModal}>
+        <Button
+          isButton={true}
+          onClick={closeModal}
+        >
           Continue
         </Button>
       </div>

@@ -1,5 +1,7 @@
 @import "../../../scss/variables";
 
+/* Common styles for file input */
+
 .file {
     display: flex;
     width: 100%;
@@ -10,9 +12,11 @@
     align-items: center;
     justify-content: space-between;
     color: #7E7E7E;
+
     input {
         display: none;
     }
+
     label {
         width: 83px;
         height: 54px;
@@ -24,6 +28,7 @@
         border: 1px solid #000000;
         border-radius: 4px 0px 0px 4px;
     }
+
     span {
         cursor: default;
         margin-left: 16px;
@@ -36,9 +41,12 @@
 
 }
 
+/* File container styles */
+
 .fileContainer {
     margin: 0 auto;
     max-width: 380px;
+
     .helper {
         margin-left: 12px;
         font-size: 12px;

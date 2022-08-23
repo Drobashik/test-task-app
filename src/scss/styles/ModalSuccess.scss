@@ -1,5 +1,7 @@
 @import "../variables";
 
+/* Styles for modal page success registration */
+
 .success-modal {
     display: flex;
     flex-direction: column;
@@ -21,6 +23,7 @@
         padding: 80px 150px 100px;
         background-color: #FFFFFF;
         border-radius: 10px;
+
         h1 {
             margin-bottom: 50px;
             color: $black-color;

@@ -1,5 +1,7 @@
 @import "../../../scss/variables";
 
+/* Basic styles for radio buttons */
+
 
 .radio:checked,
 .radio:not(:checked) {
@@ -47,6 +49,9 @@
     -webkit-transition: all 0.2s ease;
     transition: all 0.2s ease;
 }
+
+
+/* Some animation effect */
 
 .radio:not(:checked)+label:after {
     opacity: 0;

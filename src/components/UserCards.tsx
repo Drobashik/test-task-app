@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../hooks/useRedux';
 import { fetchUsers } from '../store/actions/userAction';
 import Button from './UI/Button/Button';
@@ -14,16 +14,16 @@ export default function UserCards() {
   const { usersDto, isLoading } = useAppSelector(state => state.user)
   const { userDto } = useAppSelector(state => state.auth)
 
-  const getMoreUsers = useCallback(() => {
+  const getMoreUsers = () => {
     return setCount(prev => prev + 6)
-  }, [count])
+  }
 
   useEffect(() => {
     if (userDto) {
       dispatch(fetchUsers(1, 6))
       setCount(6)
     }
-  }, [userDto])
+  }, [dispatch, userDto])
 
   useEffect(() => {
     dispatch(fetchUsers(1, count))
@@ -65,7 +65,15 @@ export default function UserCards() {
                 >
                   {user.email}
                 </p>
-                <p>{phoneTransform(user.phone)}</p>
+                <p
+                  data-tip={user.phone}
+                  data-delay-show='750'
+                  data-place='bottom'
+                  data-arrow-color='transparent'
+                  data-class='tooltip'
+                >
+                  {phoneTransform(user.phone)}
+                </p>
               </div>
             </div>)
         })

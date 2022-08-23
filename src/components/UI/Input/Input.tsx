@@ -1,6 +1,8 @@
 import { styled, TextField } from '@mui/material';
 import React from 'react';
 
+/* Setting inline styles for input field to make a big priority */
+
 const InputTextField = styled(TextField)({
     '& label': {
         fontFamily: '"Nunito" !important',

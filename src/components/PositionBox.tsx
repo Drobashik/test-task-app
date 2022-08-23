@@ -1,5 +1,4 @@
-import { FormControlLabel, RadioGroup } from '@mui/material'
-import React, { forwardRef, useEffect } from 'react'
+import { useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../hooks/useRedux'
 import { fetchPosition } from '../store/actions/positionAction';
 import RadioButton from './UI/RadioButton/RadioButton'
@@ -10,7 +9,7 @@ export const PositionBox = ({ ...props }) => {
 
   useEffect(() => {
     dispatch(fetchPosition())
-  }, [])
+  }, [dispatch])
 
   return (
     <>
@@ -31,7 +30,10 @@ export const PositionBox = ({ ...props }) => {
                 value={position.id}
                 defaultChecked={position.id === 1 ? true : false}
               />
-              <label htmlFor={position.name}>{position.name}</label>
+              <label
+                htmlFor={position.name}
+              >
+                {position.name}</label>
             </div>
           )
         })

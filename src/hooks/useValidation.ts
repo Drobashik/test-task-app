@@ -15,11 +15,11 @@ export const useValidation = (value: File | string | null, validations: Validati
             switch (validation) {
 
                 case 'minLength':
-                    (<string>value).length < (validations[validation] as number) ? setMinLengthError(true) : setMinLengthError(false);
+                    (value as string).length < (validations[validation] as number) ? setMinLengthError(true) : setMinLengthError(false);
                     break;
 
                 case 'maxLength':
-                    (<string>value).length > (validations[validation] as number) ? setMaxLengthError(true) : setMaxLengthError(false);
+                    (value as string).length > (validations[validation] as number) ? setMaxLengthError(true) : setMaxLengthError(false);
                     break;
 
                 case 'isEmpty':
@@ -33,14 +33,14 @@ export const useValidation = (value: File | string | null, validations: Validati
                 case 'isPhone':
                     setPhoneError(testRegularExp(value as string, 'phone'))
                     break;
-                    
+
                 case 'isFile':
-                    (<File>value)?.size > 5000000 ? setFileError(true) : setFileError(false)
+                    (value as File)?.size > 5000000 ? setFileError(true) : setFileError(false)
                     break;
 
             }
         }
-    }, [value])
+    }, [value, validations])
 
     return {
         isEmpty,

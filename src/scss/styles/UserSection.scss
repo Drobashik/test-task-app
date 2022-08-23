@@ -1,5 +1,7 @@
 @import "../variables";
 
+/* User section styles */
+
 .user-section {
 
     h1 {
@@ -46,13 +48,13 @@
                 align-items: center;
                 width: 100%;
             }
-            
+
             &.dummy {
                 margin: 0;
                 height: 0;
             }
         }
-        
+
         .user-section__btn {
             width: 100%;
             display: flex;
@@ -61,10 +63,15 @@
         }
     }
 }
+
+/* Tooltip style hovering on the element */
+
 .tooltip {
     padding: 3px 16px !important;
     font-size: 16px !important;
 }
+
+/* Media queries for user section */
 
 
 @media (max-width: 1024px) {
