@@ -1,5 +1,5 @@
 import axios from "../../axios"
-import { DTOPosition, Position } from "../../models/models"
+import { DTOPosition } from "../../models/models"
 import { positionSlice } from "../reducers/positionReducer"
 import { AppDispatch } from "../store"
 

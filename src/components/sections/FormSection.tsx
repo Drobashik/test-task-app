@@ -3,7 +3,6 @@ import Form from '../Form'
 
 export default function FormSection() {
 
-
   return (
     <>
       <section className='form-section container' id='form'>
@@ -12,4 +11,5 @@ export default function FormSection() {
       </section>
     </>
   )
+  
 }

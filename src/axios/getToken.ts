@@ -8,5 +8,5 @@ export let dataToken: Token = {
 
 export const getToken = async () => {
     const responseData = await axios.get('token');
-    dataToken = await responseData.data 
+    dataToken = await responseData.data
 }

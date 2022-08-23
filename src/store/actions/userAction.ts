@@ -1,5 +1,5 @@
 import axios from "../../axios"
-import { DTOUser, User } from "../../models/models"
+import { DTOUser } from "../../models/models"
 import { authSlice } from "../reducers/authReducer"
 import { userSlice } from "../reducers/userReducer"
 import { AppDispatch } from "../store"

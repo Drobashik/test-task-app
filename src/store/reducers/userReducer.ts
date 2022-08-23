@@ -1,12 +1,11 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
-import { DTOUser, User } from "../../models/models";
+import { DTOUser } from "../../models/models";
 
 type UserStateProps = {
     isLoading: boolean;
     error: string;
     usersDto: DTOUser
 }
-
 
 const initialState: UserStateProps = {
     isLoading: false,
@@ -17,7 +16,6 @@ const initialState: UserStateProps = {
         message: '',
     }
 }
-
 
 export const userSlice = createSlice({
     name: 'user',

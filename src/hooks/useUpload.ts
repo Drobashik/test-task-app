@@ -1,6 +1,10 @@
 import { useState } from 'react'
 
-export default function useUpload(photo: any) {
+type PhotoProp = {
+  fileOnChange: (file: File | null) => void
+}
+
+export default function useUpload(photo: PhotoProp) {
   const [photoName, setPhotoName] = useState('Upload your photo')
 
   function uploadFile(event: Event) {

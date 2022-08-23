@@ -13,7 +13,6 @@ const initialState: AuthStateProps = {
     userDto: null,
 }
 
-
 export const authSlice = createSlice({
     name: 'auth',
     initialState,
