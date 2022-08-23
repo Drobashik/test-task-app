@@ -66,6 +66,7 @@ function Form() {
             email.setEmpty()
             phone.setEmpty()
             setPhotoName('Upload your photo')
+            photo.fileOnChange(null)
         }
     }
 
