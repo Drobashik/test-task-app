@@ -23,26 +23,8 @@ function Form() {
     const { photoName, uploadFile, setPhotoName } = useUpload(photo)
 
     const dispatch = useAppDispatch()
-    const { isLoading, userDto } = useAppSelector(state => state.auth)
+    const { isLoading, userDto, error } = useAppSelector(state => state.auth)
 
-    function handleSubmit(e: FormEvent) {
-        e.preventDefault()
-
-        const user = formData(
-            name.value as string,
-            email.value as string,
-            phone.value as string,
-            position_id.value as string,
-            photo.value as File,
-        )
-
-        dispatch(postUser(user, dataToken.token))
-
-        name.setEmpty()
-        email.setEmpty()
-        phone.setEmpty()
-        setPhotoName('Upload your photo')
-    }
 
     useEffect(() => {
         getToken()
@@ -63,61 +45,86 @@ function Form() {
         [name.minLengthError, email.emailError,
         phone.phoneError, photo.fileError,
         photo.value, name.maxLengthError,
-        email.maxLengthError, email.minLengthError])
+        email.maxLengthError, email.minLengthError]
+    )
 
+    const handleSubmit = (e: FormEvent) => {
+        e.preventDefault()
+
+        const user = formData(
+            name.value as string,
+            email.value as string,
+            phone.value as string,
+            position_id.value as string,
+            photo.value as File,
+        )
+
+        dispatch(postUser(user, dataToken.token))
+
+        if (isInputValid) {
+            name.setEmpty()
+            email.setEmpty()
+            phone.setEmpty()
+            setPhotoName('Upload your photo')
+        }
+    }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <div className="form-section__inputs">
-                <Input
-                    error={(name.isDirty && name.minLengthError) || name.maxLengthError ? true : false}
-                    value={name.value}
-                    onChange={name.onChange}
-                    label='Your name'
-                    helperText={(name.isDirty && name.minLengthError) || name.maxLengthError ? 'The name must be at least 2 characters.' : ''}
-                />
-                <Input
-                    error={email.isDirty && email.emailError ? true : false}
-                    value={email.value}
-                    onChange={email.onChange}
-                    label='Email'
-                    helperText={email.isDirty && email.emailError ? 'The email must be a valid email address.' : ''}
-                />
-                <Input
-                    error={phone.isDirty && phone.phoneError ? true : false}
-                    value={phone.value}
-                    onChange={phone.onChange}
-                    label='Phone'
-                    helperText={phone.isDirty && phone.phoneError ? 'The phone field is required.' : '+38 (XXX) XXX - XX - XX'}
-                />
-            </div>
-            <div className="form-section__radio">
-                <PositionBox
-                    onChange={position_id.onChange}
-                />
-            </div>
+        <>
 
-            <FileInput
-                photoName={photoName}
-                helperText={photo.fileError ? 'The photo may not be greater than 5 Mbytes.' : ''}
-                accept="image/jpg,image/jpeg"
-                onChange={uploadFile}
-            />
+            <form onSubmit={handleSubmit}>
+                <div className="form-section__inputs">
+                    <Input
+                        error={(name.isDirty && name.minLengthError) || name.maxLengthError || error ? true : false}
+                        value={name.value}
+                        onChange={name.onChange}
+                        label='Your name'
+                        helperText={(name.isDirty && name.minLengthError) || name.maxLengthError ? 'The name must be at least 2 characters.' : ''}
+                    />
+                    <Input
+                        error={(email.isDirty && email.emailError) || error ? true : false}
+                        value={email.value}
+                        onChange={email.onChange}
+                        label='Email'
+                        helperText={(email.isDirty && email.emailError) ? 'The email must be a valid email address.' : ''}
+                    />
+                    <Input
+                        error={(phone.isDirty && phone.phoneError) || error ? true : false}
+                        value={phone.value}
+                        onChange={phone.onChange}
+                        label='Phone'
+                        helperText={(phone.isDirty && phone.phoneError) ? 'The phone field is required.' : '+38 (XXX) XXX - XX - XX'}
+                    />
+                </div>
+                <div className="form-section__radio">
+                    <PositionBox
+                        onChange={position_id.onChange}
+                    />
+                </div>
 
-            <div className='form-section__btn'>
-                {!isLoading && <Button
-                    isButton={true}
-                    disabled={!isInputValid}
-                >
-                    Sign up
-                </Button>}
-                {
-                    isLoading &&
-                    <Preloader />
-                }
-            </div>
+                <FileInput
+                    photoName={photoName}
+                    helperText={photo.fileError ? 'The photo may not be greater than 5 Mbytes.' : ''}
+                    accept="image/jpg,image/jpeg"
+                    onChange={uploadFile}
+                />
+
+                <div className='form-section__btn'>
+                    {!isLoading && <Button
+                        isButton={true}
+                        disabled={!isInputValid}
+                    >
+                        Sign up
+                    </Button>}
+
+                    {
+                        (isLoading) &&
+                        <Preloader />
+                    }
+                </div>
+            </form>
             {userDto?.success && <ModalSuccess />}
-        </form>
+        </>
     )
 }
 

@@ -33,6 +33,7 @@ export const postUser = (user: FormData, token: string) => {
             dispatch(authSlice.actions.registerSuccess(responseData.data))
         } catch (error) {
             console.log(error);
+            dispatch(authSlice.actions.registerError(error as Error))
         }
     }
 }
